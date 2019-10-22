@@ -13,6 +13,7 @@ public class Terminal {
     public Terminal() {
         commandMap.put("cd" , new Cd());
         commandMap.put("pwd" , new Pwd());
+        commandMap.put("ls" , new Ls());
 
     }
 
