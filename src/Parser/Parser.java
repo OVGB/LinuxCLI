@@ -9,9 +9,10 @@ public class Parser {
     public Parser() {
         Commands.put("cd", 0);
         Commands.put("pwd" , 0);
+        Commands.put("ls" , 0);
     }
 
-    String[][] retArray = new String[2][2];
+    String[][] retArray = new String[3][3];
     String[] myArray;
     public String[][] parse(String input) {
 
