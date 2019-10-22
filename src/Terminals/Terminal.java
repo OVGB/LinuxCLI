@@ -12,8 +12,10 @@ public class Terminal {
     private static ArrayList<ArrayList<String>> Commands = new ArrayList<ArrayList<String>>(0);
 
     public Terminal() {
-        commandMap.put("cd", new Cd());
-        commandMap.put("pwd", new Pwd());
+      
+        commandMap.put("cd" , new Cd());
+        commandMap.put("pwd" , new Pwd());
+        commandMap.put("ls" , new Ls());
 
     }
 
