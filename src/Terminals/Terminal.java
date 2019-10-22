@@ -3,7 +3,7 @@ package Terminals;
 import Commands.Cd;
 import Commands.Command;
 import Commands.Pwd;
-
+import Parser.Parser;
 import java.util.HashMap;
 import java.util.Map;
 public class Terminal {
