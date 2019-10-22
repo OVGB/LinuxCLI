@@ -4,7 +4,7 @@ import Terminals.Terminal;
 
 import java.util.Scanner;
 public class Main {
-
+    public static String workingDirectory="C:\\Users\\youss";
     public static void main(String[] args) {
         Terminal myTerminal = new Terminal();
         Scanner inp = new Scanner(System.in);
