@@ -5,5 +5,6 @@ public class Pwd extends Command {
     @Override
     public void run() {
         System.out.println("pwd running");
+        System.out.println(Main.workingDirectory);
     }
 }
