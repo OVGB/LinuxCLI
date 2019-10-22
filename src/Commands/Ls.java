@@ -19,7 +19,7 @@ public class Ls extends Command {
         boolean change = true;
         for (File file : filesArray) {
             if (file.isDirectory()) {
-                System.out.print("Dir: " + file.getName() + "    ");
+                System.out.print(Main.ANSI_BLUE + file.getName() + Main.ANSI_BLUE + "    ");
                 cnt++;
                 change=true;
             }
@@ -33,7 +33,7 @@ public class Ls extends Command {
         change =true;
         for (File file : filesArray) {
             if (file.isFile()) {
-                System.out.print("File: " + file.getName() + "    ");
+                System.out.print(Main.ANSI_WHITE + file.getName() + Main.ANSI_WHITE +  "    ");
                 cnt++;
                 change=true;
             }
