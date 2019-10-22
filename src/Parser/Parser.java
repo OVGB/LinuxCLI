@@ -9,6 +9,7 @@ public class Parser {
     public Parser() {
         Commands.put("cd", 0);
         Commands.put("pwd", 0);
+        Commands.put("mkdir",1);
     }
 
     public static ArrayList<ArrayList<String>> commandsList = new ArrayList<ArrayList<String>>(0);

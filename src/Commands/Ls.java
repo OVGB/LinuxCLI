@@ -5,9 +5,10 @@ import LinuxCLI.*;
 public class Ls extends Command {
     public Ls() { argNum = 0; }
     @Override
-    public void run() {
+    public String run(String[] args, String args1){
         System.out.println("ls running");
         sortAll(Main.workingDirectory);
+        return "";
     }
 
     private static void sortAll(String dirName) {

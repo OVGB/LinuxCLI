@@ -1,7 +1,5 @@
 package Terminals;
-import Commands.Cd;
-import Commands.Command;
-import Commands.Pwd;
+import Commands.*;
 import Parser.Parser;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,7 +10,7 @@ public class Terminal {
     private static ArrayList<ArrayList<String>> Commands = new ArrayList<ArrayList<String>>(0);
 
     public Terminal() {
-      
+        commandMap.put("mkdir", new Mkdir());
         commandMap.put("cd" , new Cd());
         commandMap.put("pwd" , new Pwd());
         commandMap.put("ls" , new Ls());
@@ -39,7 +37,7 @@ public class Terminal {
                  * for(int i = 1;i< n.length();++i) { Args[i-1] = tmp[i]; }
                  */
                 Command myCommand = getCommand(c);
-                myCommand.run();
+                myCommand.run(tmp, c);
 
             }
     }

@@ -13,9 +13,9 @@ public class Mkdir extends Command {
 
     @Override
     public String run(String[] args, String args1){
-        if(!(new File(args[0]).exists())) {
+        if(!(new File(args[1]).exists())) {
             try {
-                Files.createDirectories(Paths.get(args[0]));
+                Files.createDirectories(Paths.get(args[1]));
 
             } catch (IOException ex) {
                 return "File Creation Failed";
