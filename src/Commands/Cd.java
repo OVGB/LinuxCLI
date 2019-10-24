@@ -17,7 +17,7 @@ public class Cd extends Command {
             return "";
         }
         else if(temppath.equals("..")) {
-            System.out.println(temppath);
+            //System.out.println(temppath);
             int stoppingIdx=-1;
             for(int i = Main.workingDirectory.length()-1; i>=0; i--) {
                 if(Main.workingDirectory.charAt(i)=='\\') { //last \ in the path
@@ -32,7 +32,7 @@ public class Cd extends Command {
                 }
                 Main.workingDirectory=newPath;
             }
-            System.out.println(Main.workingDirectory);
+            //System.out.println(Main.workingDirectory);
             return "";
         }
 
