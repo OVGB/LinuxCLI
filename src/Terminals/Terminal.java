@@ -15,6 +15,7 @@ public class Terminal {
         commandMap.put("cat", new Cat());
         commandMap.put("cd", new Cd());
         commandMap.put("clear", new Clear());
+        commandMap.put("cp", new Cp());
         commandMap.put("date", new Date());
         commandMap.put("ls", new Ls());
         commandMap.put("mkdir", new Mkdir());

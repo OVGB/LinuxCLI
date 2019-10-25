@@ -11,7 +11,7 @@ public class Mv extends Command {
     {
         String src1 = args[1];
         String src2 = args[2];
-        if(args.length == 2)
+        if(args.length == 3)
         {
             if(!args[1].contains(":"))
                 src1 = Main.workingDirectory + args[1];
@@ -75,11 +75,11 @@ public class Mv extends Command {
 
     private String getFileName(String arg)
     {
-        int ind = -1;
-        for(int i = arg.length() - 1; i >= 0; i--)
-            if(arg.charAt(i) == '\\')
-                ind = i;
-
-        return arg.substring(ind + 1, arg.length());
+        if(arg.contains("\\"))
+        {
+            int ind = arg.lastIndexOf("\\");
+            return arg.substring(ind + 1,arg.length());
+        }
+        return arg;
     }
 }
