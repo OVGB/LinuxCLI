@@ -16,10 +16,12 @@ public class Terminal {
         commandMap.put("cat", new Cat());
         commandMap.put("cd", new Cd());
         commandMap.put("clear", new Clear());
+        commandMap.put("cp", new Cp());
         commandMap.put("date", new Date());
         commandMap.put("help", new Help());
         commandMap.put("ls", new Ls());
         commandMap.put("mkdir", new Mkdir());
+        commandMap.put("mv", new Mv());
         commandMap.put("pwd", new Pwd());
         commandMap.put("rmdir", new Rmdir());
        // commandMap.put(">",new Redirect());
