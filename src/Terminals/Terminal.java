@@ -1,5 +1,4 @@
 package Terminals;
-
 import Commands.*;
 import Parser.Parser;
 import java.util.ArrayList;
@@ -20,7 +19,6 @@ public class Terminal {
     }
 
     public static Command getCommand(String key) {
-
         return commandMap.get(key);
     }
 

@@ -18,12 +18,6 @@ public class Parser {
     public static ArrayList<ArrayList<String>> commandsList = new ArrayList<ArrayList<String>>(0);
     String[][] retArray = new String[2][2];
     String[] myArray;
-    /*
-     * public boolean Constructo(String command , String[] Args,String St ) {
-     * String[] tmp = St.split(" "); command = tmp[0]; for(int i = 1;i<
-     * St.length();++i) { Args[i-1] = tmp[i]; } return true; }
-     */
-
     public ArrayList<ArrayList<String>> makeCmd(String input) {
 
         input = input.replaceAll("\\s+", " ").trim();
@@ -32,22 +26,20 @@ public class Parser {
         for (int i = 0; i < myArray.length; ++i) {
             myArray[i] = myArray[i].replaceAll(" > ", " > >");
             // System.out.println(myArray[i]);
-            myArray[i] = myArray[i].replaceAll(" < ", " < <");
+            myArray[i] = myArray[i].replaceAll(" >> ", " >> >>");
         }
         for (int i = 0; i < myArray.length; ++i) {
             String[] reArray; // redirecting array
             ArrayList<String> temp = new ArrayList<>(0);
             String mystr = myArray[i];
-            reArray = mystr.split(" > | < ");
+            reArray = mystr.split(" > | >> ");
             for (int j = 0; j < reArray.length; ++j) {
                 reArray[j] = reArray[j].replaceAll(">", "> ");
-                reArray[j] = reArray[j].replaceAll("<", "< ");
+                reArray[j] = reArray[j].replaceAll(">>", ">> ");
                 temp.add(reArray[j]); // put the array into the array list so that we can construct the CommandsList
                                       // arraylist
-
             }
             commandsList.add(temp); // add the piped stmts into the array list
-
         }
         return commandsList;
     }
@@ -59,7 +51,7 @@ public class Parser {
                 tmp = n.split(" ");
                 if (!Commands.containsKey(tmp[0])) {
                     // TO DO SUGGEST THE RIGHT COMMAND
-                    System.out.println("Command ' " + tmp[0] + "' not found ");
+                    System.out.println("Command '" + tmp[0] + "' not found ");
                     return false;
                 }
             }

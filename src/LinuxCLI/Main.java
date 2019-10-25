@@ -22,6 +22,6 @@ public class Main {
         Scanner inp = new Scanner(System.in);
         String mystring = inp.nextLine();
         myTerminal.Execute(mystring);
-
+        inp.close();
     }
 }
