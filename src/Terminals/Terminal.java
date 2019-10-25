@@ -1,4 +1,6 @@
 package Terminals;
+
+import Commands.Date;
 import Commands.*;
 import LinuxCLI.Main;
 import Parser.Parser;
@@ -10,13 +12,17 @@ public class Terminal {
     private static ArrayList<ArrayList<String>> Commands;
 
     public Terminal() {
+        commandMap.put("args", new Args());
         commandMap.put("cat", new Cat());
         commandMap.put("cd", new Cd());
         commandMap.put("clear", new Clear());
+        commandMap.put("date", new Date());
+        commandMap.put("help", new Help());
         commandMap.put("ls", new Ls());
         commandMap.put("mkdir", new Mkdir());
         commandMap.put("pwd", new Pwd());
         commandMap.put("rmdir", new Rmdir());
+       // commandMap.put(">",new Redirect());
     }
 
     public static Command getCommand(String key) {
@@ -31,6 +37,7 @@ public class Terminal {
         String input = inp.nextLine();
         if(input.equals("exit"))
             return false;
+        if(input.equals("")) return true;
         Parser myParser = new Parser();
         Commands = myParser.makeCmd(input);
 
