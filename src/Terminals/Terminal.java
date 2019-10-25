@@ -1,15 +1,14 @@
 package Terminals;
 
 import Commands.*;
+import LinuxCLI.Main;
 import Parser.Parser;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+import java.util.*;
 
 public class Terminal {
     private static Map<String, Command> commandMap = new HashMap<String, Command>();
-    private static ArrayList<ArrayList<String>> Commands = new ArrayList<ArrayList<String>>(0);
+    private static ArrayList<ArrayList<String>> Commands;
 
     public Terminal() {
         commandMap.put("mkdir", new Mkdir());
@@ -24,7 +23,12 @@ public class Terminal {
         return commandMap.get(key);
     }
 
-    public void Execute(String input) {
+    public void Execute() {
+        Commands = new ArrayList<ArrayList<String>>(0);
+        System.out.print(Main.workingDirectory + " ");
+
+        Scanner inp = new Scanner(System.in);
+        String input = inp.nextLine();
         Parser myParser = new Parser();
         Commands = myParser.makeCmd(input);
 

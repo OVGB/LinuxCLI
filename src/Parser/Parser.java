@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 
 public class Parser {
     private static Map<String, Integer> Commands = new HashMap<String, Integer>();
 
     public Parser() {
+        commandsList = commandsList = new ArrayList<ArrayList<String>>(0);
         Commands.put("cd", 0);
         Commands.put("pwd", 0);
         Commands.put("mkdir", 1);
     }
 
-    public static ArrayList<ArrayList<String>> commandsList = new ArrayList<ArrayList<String>>(0);
+    public static ArrayList<ArrayList<String>> commandsList;
     String[][] retArray = new String[2][2];
     String[] myArray;
     /*
