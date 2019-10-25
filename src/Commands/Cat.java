@@ -1,5 +1,7 @@
 package Commands;
 
+import LinuxCLI.Main;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -9,11 +11,15 @@ public class Cat extends Command {
 
     @Override
     public String run(String[] args, String args1) {
+
         String output = "";
         if(args.length > 1) {
             Vector<File> files = new Vector<File>();
-            for (int i = 1; i < args.length; i++)
+            for (int i = 1; i < args.length; i++) {
+                if(!args[i].contains(":"))
+                    args[i] = Main.workingDirectory + args[i];
                 files.add(new File(args[i]));
+            }
 
             for(int i = 0; i < files.size(); i++)
             {

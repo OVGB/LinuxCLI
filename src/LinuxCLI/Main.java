@@ -15,9 +15,6 @@ public class Main {
     public static final String ANSI_WHITE = "\u001B[37m";
 
     public static void main(String[] args) {
-        Terminal myTerminal = new Terminal();
-        while(true) {
-            myTerminal.Execute();
-        }
+        while (new Terminal().Execute());
     }
 }

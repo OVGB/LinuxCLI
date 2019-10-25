@@ -10,9 +10,13 @@ public class Parser {
 
     public Parser() {
         commandsList = commandsList = new ArrayList<ArrayList<String>>(0);
+        Commands.put("cat",9);
         Commands.put("cd", 0);
-        Commands.put("pwd", 0);
+        Commands.put("clear",0);
+        Commands.put("ls",0);
         Commands.put("mkdir", 1);
+        Commands.put("pwd", 0);
+        Commands.put("rmdir",1);
     }
 
     public static ArrayList<ArrayList<String>> commandsList;

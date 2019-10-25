@@ -44,7 +44,7 @@ public class Cd extends Command {
             path.replaceAll("/", "\\");
             if (new File(path).exists()) {
                 Main.workingDirectory = path + "\\";
-                System.out.println("SUCCESS");
+                //System.out.println("SUCCESS");
             } else {
                 System.out.println("error: No such file or directory");
             }
