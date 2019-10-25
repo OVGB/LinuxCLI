@@ -2,6 +2,8 @@ package Commands;
 
 import java.io.File;
 
+import LinuxCLI.Main;
+
 public class Cd extends Command {
     public Cd() { argNum = 1; }
     @Override

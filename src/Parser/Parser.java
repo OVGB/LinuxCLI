@@ -1,15 +1,18 @@
 package Parser;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+
 public class Parser {
     private static Map<String, Integer> Commands = new HashMap<String, Integer>();
+
     public Parser() {
         Commands.put("cd", 0);
         Commands.put("pwd", 0);
-        Commands.put("mkdir",1);
+        Commands.put("mkdir", 1);
     }
 
     public static ArrayList<ArrayList<String>> commandsList = new ArrayList<ArrayList<String>>(0);
@@ -21,7 +24,7 @@ public class Parser {
      * St.length();++i) { Args[i-1] = tmp[i]; } return true; }
      */
 
-    public ArrayList<ArrayList<String>> parse(String input) {
+    public ArrayList<ArrayList<String>> makeCmd(String input) {
 
         input = input.replaceAll("\\s+", " ").trim();
         myArray = input.split("\\| "); // Split at pipes
@@ -49,4 +52,18 @@ public class Parser {
         return commandsList;
     }
 
+    public boolean parse(ArrayList<ArrayList<String>> arr) {
+        String tmp[];
+        for (List<String> l1 : arr) {
+            for (String n : l1) {
+                tmp = n.split(" ");
+                if (!Commands.containsKey(tmp[0])) {
+                    // TO DO SUGGEST THE RIGHT COMMAND
+                    System.out.println("Command ' " + tmp[0] + "' not found ");
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
