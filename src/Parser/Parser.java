@@ -4,18 +4,22 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 
 public class Parser {
     private static Map<String, Integer> Commands = new HashMap<String, Integer>();
 
     public Parser() {
+        commandsList = new ArrayList<ArrayList<String>>(0);
+        Commands.put("cat",9);
         Commands.put("cd", 0);
-        Commands.put("pwd", 0);
+        Commands.put("clear",0);
+        Commands.put("ls",0);
         Commands.put("mkdir", 1);
+        Commands.put("pwd", 0);
+        Commands.put("rmdir",1);
     }
 
-    public static ArrayList<ArrayList<String>> commandsList = new ArrayList<ArrayList<String>>(0);
+    public static ArrayList<ArrayList<String>> commandsList;
     String[][] retArray = new String[2][2];
     String[] myArray;
     public ArrayList<ArrayList<String>> makeCmd(String input) {

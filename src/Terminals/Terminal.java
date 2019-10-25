@@ -1,28 +1,36 @@
 package Terminals;
 import Commands.*;
+import LinuxCLI.Main;
 import Parser.Parser;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+import java.util.*;
 
 public class Terminal {
     private static Map<String, Command> commandMap = new HashMap<String, Command>();
-    private static ArrayList<ArrayList<String>> Commands = new ArrayList<ArrayList<String>>(0);
+    private static ArrayList<ArrayList<String>> Commands;
 
     public Terminal() {
-        commandMap.put("mkdir", new Mkdir());
+        commandMap.put("cat", new Cat());
         commandMap.put("cd", new Cd());
-        commandMap.put("pwd", new Pwd());
+        commandMap.put("clear", new Clear());
         commandMap.put("ls", new Ls());
-
+        commandMap.put("mkdir", new Mkdir());
+        commandMap.put("pwd", new Pwd());
+        commandMap.put("rmdir", new Rmdir());
     }
 
     public static Command getCommand(String key) {
         return commandMap.get(key);
     }
 
-    public void Execute(String input) {
+    public boolean Execute() {
+        Commands = new ArrayList<ArrayList<String>>(0);
+        System.out.print(Main.ANSI_WHITE + Main.workingDirectory + " ");
+
+        Scanner inp = new Scanner(System.in);
+        String input = inp.nextLine();
+        if(input.equals("exit"))
+            return false;
         Parser myParser = new Parser();
         Commands = myParser.makeCmd(input);
 
@@ -42,6 +50,7 @@ public class Terminal {
                     myCommand.run(tmp, c);
                 }
         }
+        return true;
     }
 
 }
