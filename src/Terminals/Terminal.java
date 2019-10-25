@@ -18,6 +18,7 @@ public class Terminal {
         commandMap.put("date", new Date());
         commandMap.put("ls", new Ls());
         commandMap.put("mkdir", new Mkdir());
+        commandMap.put("mv", new Mv());
         commandMap.put("pwd", new Pwd());
         commandMap.put("rmdir", new Rmdir());
     }

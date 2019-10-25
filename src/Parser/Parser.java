@@ -16,6 +16,7 @@ public class Parser {
         Commands.put("date",0);
         Commands.put("ls",0);
         Commands.put("mkdir", 1);
+        Commands.put("mv", 2) ;
         Commands.put("pwd", 0);
         Commands.put("rmdir",1);
     }

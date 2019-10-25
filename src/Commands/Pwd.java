@@ -11,7 +11,7 @@ public class Pwd extends Command {
     public String run(String[] args, String args1) {
         System.out.println("pwd running");
         System.out.println(Main.workingDirectory);
-        return "";
+        return Main.workingDirectory;
 
     }
 }
