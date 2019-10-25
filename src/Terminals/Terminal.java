@@ -1,5 +1,6 @@
 package Terminals;
 
+import Commands.Date;
 import Commands.*;
 import LinuxCLI.Main;
 import Parser.Parser;
@@ -14,6 +15,7 @@ public class Terminal {
         commandMap.put("cat", new Cat());
         commandMap.put("cd", new Cd());
         commandMap.put("clear", new Clear());
+        commandMap.put("date", new Date());
         commandMap.put("ls", new Ls());
         commandMap.put("mkdir", new Mkdir());
         commandMap.put("pwd", new Pwd());

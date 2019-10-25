@@ -13,6 +13,7 @@ public class Parser {
         Commands.put("cat",9);
         Commands.put("cd", 0);
         Commands.put("clear",0);
+        Commands.put("date",0);
         Commands.put("ls",0);
         Commands.put("mkdir", 1);
         Commands.put("pwd", 0);
