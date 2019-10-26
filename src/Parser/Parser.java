@@ -53,6 +53,8 @@ public class Parser {
             }
             commandsList.add(temp); // add the piped stmts into the array list
         }
+
+
         return commandsList;
     }
 
