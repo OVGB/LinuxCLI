@@ -24,7 +24,8 @@ public class Terminal {
         commandMap.put("mv", new Mv());
         commandMap.put("pwd", new Pwd());
         commandMap.put("rmdir", new Rmdir());
-       // commandMap.put(">",new Redirect());
+        commandMap.put(">", new redir());
+        commandMap.put(">>",new Dredir());
     }
 
     public static Command getCommand(String key) {
@@ -47,6 +48,7 @@ public class Terminal {
         // TO DO STRING ARGS
         // String[] Args;
         if (myParser.parse(Commands)) {
+            String output="";
             for (List<String> l1 : Commands)
                 for (String n : l1) {
                     // TO DO MAKE FUNC TO RET ARGS ARRAY AND THE COMMAND
@@ -56,7 +58,7 @@ public class Terminal {
                      * for(int i = 1;i< n.length();++i) { Args[i-1] = tmp[i]; }
                      */
                     Command myCommand = getCommand(c);
-                    myCommand.run(tmp, c);
+                    output= myCommand.run(tmp, output);
                 }
         }
         return true;

@@ -21,6 +21,9 @@ public class Parser {
         Commands.put("pwd", "pwd : pwd\nPrint the name of the current working directory.\n");
         Commands.put("rmdir","rmdir : rmdir [Directory]\nRemove the DIRECTORY(ies), if they are empty.\n");
         Commands.put("cp", "cp : cp [SOURCE] [DESTINATION]\nCopy Source to DEST\n");
+        Commands.put("mv", "cp : cp [SOURCE] [DESTINATION]\nCopy Source to DEST\n");
+        Commands.put(">", "");
+        Commands.put(">>", "");
 
     }
 
