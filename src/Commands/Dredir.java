@@ -1,5 +1,7 @@
 package Commands;
 
+import LinuxCLI.Main;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -13,6 +15,8 @@ public class Dredir extends Command {
         if (args1.equals(""))
             return output;
         if (args.length == 2) {
+            if(!args[1].contains(":"))
+                args[1] = Main.workingDirectory + args[1];
             File tmp = new File(args[1]);
             if (!tmp.exists()) {
                 try {

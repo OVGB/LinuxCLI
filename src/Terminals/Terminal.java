@@ -21,6 +21,7 @@ public class Terminal {
         commandMap.put("help", new Help());
         commandMap.put("ls", new Ls());
         commandMap.put("mkdir", new Mkdir());
+        commandMap.put("more", new More());
         commandMap.put("mv", new Mv());
         commandMap.put("pwd", new Pwd());
         commandMap.put("rmdir", new Rmdir());
@@ -49,29 +50,27 @@ public class Terminal {
         // String[] Args;
         if (myParser.parse(Commands)) {
             String output="";
-            for (List<String> l1 : Commands)
+            for (List<String> l1 : Commands) {
                 for (String n : l1) {
                     // TO DO MAKE FUNC TO RET ARGS ARRAY AND THE COMMAND
                     int BeginInd = 0, EndInd = 0;
                     boolean flag = true;
-                    BeginInd = n.indexOf("\"",EndInd+1);
-                    EndInd = n.indexOf("\"",BeginInd+1);
-                    if(EndInd == -1)
+                    BeginInd = n.indexOf("\"", EndInd + 1);
+                    EndInd = n.indexOf("\"", BeginInd + 1);
+                    if (EndInd == -1 && BeginInd != -1)
                         flag = false;
-                    while(BeginInd != -1 && EndInd != -1 && flag)
-                    {
-                        System.out.println(BeginInd+ " " +EndInd);
-                        String subString = n.substring(BeginInd,EndInd);
-                        while(subString.contains(" "))
-                            subString = subString.replace(' ','?');
-                        n = n.replace(n.substring(BeginInd,EndInd),subString);
-                        BeginInd = n.indexOf("\"",EndInd+1);
-                        EndInd = n.indexOf("\"",BeginInd+1);
-                        if(EndInd == -1)
+                    while (BeginInd != -1 && EndInd != -1 && flag) {
+                        System.out.println(BeginInd + " " + EndInd);
+                        String subString = n.substring(BeginInd, EndInd);
+                        while (subString.contains(" "))
+                            subString = subString.replace(' ', '?');
+                        n = n.replace(n.substring(BeginInd, EndInd), subString);
+                        BeginInd = n.indexOf("\"", EndInd + 1);
+                        EndInd = n.indexOf("\"", BeginInd + 1);
+                        if (EndInd == -1 && BeginInd != -1)
                             flag = false;
                     }
-                    if(flag)
-                    {
+                    if (flag) {
                         String[] tmp = n.split(" ");
                         for (int i = 0; i < tmp.length; i++) {
                             while (tmp[i].contains("?"))
@@ -84,12 +83,12 @@ public class Terminal {
                          * for(int i = 1;i< n.length();++i) { Args[i-1] = tmp[i]; }
                          */
                         Command myCommand = getCommand(c);
-                        myCommand.run(tmp, c);
-                    }
-                    else {
+                        output = myCommand.run(tmp, output);
+                    } else {
                         System.out.println("Invalid Input");
                     }
                 }
+            }
         }
         return true;
     }

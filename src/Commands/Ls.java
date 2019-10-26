@@ -21,7 +21,7 @@ public class Ls extends Command {
         boolean change = true;
         for (File file : filesArray) {
             if (file.isDirectory()) {
-                output += file.getName();
+                output += file.getName() + "    " ;
                 System.out.print(Main.ANSI_BLUE + file.getName() + Main.ANSI_BLUE + "    ");
                 cnt++;
                 change=true;
@@ -32,13 +32,13 @@ public class Ls extends Command {
                 change=false;
             }
         }
-        output = "\n";
+        output += "\n";
         System.out.print("\n");
         cnt=0;
         change =true;
         for (File file : filesArray) {
             if (file.isFile()) {
-                output += file.getName();
+                output += file.getName() +  "    ";
                 System.out.print(Main.ANSI_WHITE + file.getName() + Main.ANSI_WHITE +  "    ");
                 cnt++;
                 change=true;

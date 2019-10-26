@@ -13,6 +13,7 @@ public class Mkdir extends Command {
 
     @Override
     public String run(String[] args, String args1){
+
         if(!(new File(args[1]).exists())) {
             try {
                 Files.createDirectories(Paths.get(args[1]));

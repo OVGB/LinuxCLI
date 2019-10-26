@@ -3,7 +3,7 @@ package LinuxCLI;
 import Terminals.Terminal;
 
 public class Main {
-    public static String workingDirectory = "/home/duckling/Desktop/myfolder/";
+    public static String workingDirectory = "C:\\";
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_BLACK = "\u001B[30m";
     public static final String ANSI_RED = "\u001B[31m";

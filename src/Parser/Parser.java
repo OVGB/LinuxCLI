@@ -18,6 +18,7 @@ public class Parser {
         Commands.put("args","args : args [Command] \nList all the command arguments.\n");
         Commands.put("ls","ls : ls [FILE]... \nList information about the FILES(The current directory by default.\n");
         Commands.put("mkdir", "mkdir : mkdir [Directory]\nCreate the DIRECTORY(ies) , if they do not already exist.\n");
+        Commands.put("more","");
         Commands.put("pwd", "pwd : pwd\nPrint the name of the current working directory.\n");
         Commands.put("rmdir","rmdir : rmdir [Directory]\nRemove the DIRECTORY(ies), if they are empty.\n");
         Commands.put("cp", "cp : cp [SOURCE] [DESTINATION]\nCopy Source to DEST\n");
@@ -35,22 +36,38 @@ public class Parser {
         input = input.replaceAll("\\s+", " ").trim();
         myArray = input.split("\\| "); // Split at pipes
 
+//        for (int i = 0; i < myArray.length; ++i) {
+//            myArray[i] = myArray[i].replaceAll(" > ", " > >");
+//            // System.out.println(myArray[i]);
+//            myArray[i] = myArray[i].replaceAll(" >> ", " >> >>");
+//            System.out.println(myArray[i]);
+//        }
         for (int i = 0; i < myArray.length; ++i) {
-            myArray[i] = myArray[i].replaceAll(" > ", " > >");
+            myArray[i] = myArray[i].replaceAll(" > ", " >  >");
             // System.out.println(myArray[i]);
             myArray[i] = myArray[i].replaceAll(" >> ", " >> >>");
         }
+
+//        for (int i = 0; i < myArray.length; ++i) {
+//            String[] reArray; // redirecting array
+//            ArrayList<String> temp = new ArrayList<>(0);
+//            String mystr = myArray[i];
+//            reArray = mystr.split(" > | >> ");
+//            for (int j = 0; j < reArray.length; ++j) {
+//                reArray[j] = reArray[j].replaceAll(">", "> ");
+//                reArray[j] = reArray[j].replaceAll(">>", ">> ");
         for (int i = 0; i < myArray.length; ++i) {
             String[] reArray; // redirecting array
             ArrayList<String> temp = new ArrayList<>(0);
             String mystr = myArray[i];
             reArray = mystr.split(" > | >> ");
             for (int j = 0; j < reArray.length; ++j) {
-                reArray[j] = reArray[j].replaceAll(">", "> ");
+                reArray[j] = reArray[j].replaceAll(" >", "> ");
                 reArray[j] = reArray[j].replaceAll(">>", ">> ");
                 temp.add(reArray[j]); // put the array into the array list so that we can construct the CommandsList
                                       // arraylist
             }
+
             commandsList.add(temp); // add the piped stmts into the array list
         }
 
