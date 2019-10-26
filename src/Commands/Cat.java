@@ -31,8 +31,11 @@ public class Cat extends Command {
                         {
                             String data = scanner.nextLine();
                             System.out.println(data);
+                            output +="\n";
                             output += data;
                         }
+                        scanner.close();
+                       
 
                     }  catch (FileNotFoundException e) {
                         System.out.println("File not Found");
@@ -55,7 +58,7 @@ public class Cat extends Command {
     //            }
                 System.out.println("Arguments not enough for command Cat");
             }
-
+        
         return output;
     }
 }

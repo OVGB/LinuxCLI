@@ -18,14 +18,13 @@ public class Parser {
         Commands.put("args","args : args [Command] \nList all the command arguments.\n");
         Commands.put("ls","ls : ls [FILE]... \nList information about the FILES(The current directory by default.\n");
         Commands.put("mkdir", "mkdir : mkdir [Directory]\nCreate the DIRECTORY(ies) , if they do not already exist.\n");
-        Commands.put("more","");
+        Commands.put("more","more : more [FILE]...\nA file perusal filter for CRT viewing.\n");
         Commands.put("pwd", "pwd : pwd\nPrint the name of the current working directory.\n");
         Commands.put("rmdir","rmdir : rmdir [Directory]\nRemove the DIRECTORY(ies), if they are empty.\n");
         Commands.put("cp", "cp : cp [SOURCE] [DESTINATION]\nCopy Source to DEST\n");
         Commands.put("mv", "cp : cp [SOURCE] [DESTINATION]\nCopy Source to DEST\n");
-        Commands.put(">", "");
-        Commands.put(">>", "");
-
+        Commands.put(">", "> : [Input] > [File]\nReplaces all the file txt with the input string\n");
+        Commands.put(">>", ">> : [Input] >> [File]\nAppends the input string to the file's text\n");
     }
 
     public static ArrayList<ArrayList<String>> commandsList;
