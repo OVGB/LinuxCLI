@@ -50,13 +50,43 @@ public class Terminal {
             for (List<String> l1 : Commands)
                 for (String n : l1) {
                     // TO DO MAKE FUNC TO RET ARGS ARRAY AND THE COMMAND
-                    String[] tmp = n.split(" ");
-                    c = tmp[0];
-                    /*
-                     * for(int i = 1;i< n.length();++i) { Args[i-1] = tmp[i]; }
-                     */
-                    Command myCommand = getCommand(c);
-                    myCommand.run(tmp, c);
+                    int BeginInd = 0, EndInd = 0;
+                    boolean flag = true;
+                    BeginInd = n.indexOf("\"",EndInd+1);
+                    EndInd = n.indexOf("\"",BeginInd+1);
+                    if(EndInd == -1)
+                        flag = false;
+                    while(BeginInd != -1 && EndInd != -1 && flag)
+                    {
+                        System.out.println(BeginInd+ " " +EndInd);
+                        String subString = n.substring(BeginInd,EndInd);
+                        while(subString.contains(" "))
+                            subString = subString.replace(' ','?');
+                        n = n.replace(n.substring(BeginInd,EndInd),subString);
+                        BeginInd = n.indexOf("\"",EndInd+1);
+                        EndInd = n.indexOf("\"",BeginInd+1);
+                        if(EndInd == -1)
+                            flag = false;
+                    }
+                    if(flag)
+                    {
+                        String[] tmp = n.split(" ");
+                        for (int i = 0; i < tmp.length; i++) {
+                            while (tmp[i].contains("?"))
+                                tmp[i] = tmp[i].replace('?', ' ');
+                            while (tmp[i].contains("\""))
+                                tmp[i] = tmp[i].replaceAll("\"", "");
+                        }
+                        c = tmp[0];
+                        /*
+                         * for(int i = 1;i< n.length();++i) { Args[i-1] = tmp[i]; }
+                         */
+                        Command myCommand = getCommand(c);
+                        myCommand.run(tmp, c);
+                    }
+                    else {
+                        System.out.println("Invalid Input");
+                    }
                 }
         }
         return true;

@@ -7,9 +7,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class Mkdir extends Command {
-    public Mkdir() {
-        argNum = 1;
-    }
+//    public Mkdir() {
+//        argNum = 1;
+//    }
 
     @Override
     public String run(String[] args, String args1){
@@ -20,7 +20,6 @@ public class Mkdir extends Command {
             } catch (IOException ex) {
                 return "File Creation Failed";
             }
-            ;
 
             return "";
         }

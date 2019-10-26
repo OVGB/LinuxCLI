@@ -10,7 +10,6 @@ public class Cp extends Command {
     public String run(String[] args, String args1)
     {
         if(args.length >= 3) {
-
             String[] src = args;
             File tempFile;
 
